@@ -1,4 +1,10 @@
-import { View, Text, StyleSheet, ImageBackground } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  Pressable,
+} from "react-native";
 import React from "react";
 
 import iceCoffeeImg from "@/assets/images/iced-coffee.png";
@@ -13,8 +19,10 @@ const App = () => {
         source={iceCoffeeImg}
       >
         <Text style={styles.text}>Coffee Shop</Text>
-        <Link style={styles.link} href="/explore">
-          Explore
+        <Link style={styles.link} href="/contact" asChild>
+          <Pressable style={styles.button}>
+            <Text style={styles.buttonText}>Contact Us</Text>
+          </Pressable>
         </Link>
       </ImageBackground>
     </View>
@@ -50,6 +58,22 @@ const styles = StyleSheet.create({
     textAlign: "center",
     textDecorationLine: "underline",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
+    padding: 4,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  button: {
+    height: 60,
+    borderRadius: 20,
+    backgroundColor: "black",
+    padding: 6,
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
     padding: 4,
   },
 });
