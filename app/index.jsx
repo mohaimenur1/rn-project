@@ -19,6 +19,11 @@ const App = () => {
         source={iceCoffeeImg}
       >
         <Text style={styles.text}>Coffee Shop</Text>
+        <Link style={styles.link} href="/menu" asChild>
+          <Pressable style={styles.button}>
+            <Text style={styles.buttonText}>Coffe Menu</Text>
+          </Pressable>
+        </Link>
         <Link style={styles.link} href="/contact" asChild>
           <Pressable style={styles.button}>
             <Text style={styles.buttonText}>Contact Us</Text>
