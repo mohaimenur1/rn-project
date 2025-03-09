@@ -29,6 +29,11 @@ const App = () => {
             <Text style={styles.buttonText}>Contact Us</Text>
           </Pressable>
         </Link>
+        <Link style={styles.link} href="/crud" asChild>
+          <Pressable style={styles.button}>
+            <Text style={styles.buttonText}>Crud</Text>
+          </Pressable>
+        </Link>
       </ImageBackground>
     </View>
   );
