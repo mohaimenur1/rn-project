@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -32,22 +33,24 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack>
-        {/* <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> */}
-        {/* <Stack.Screen name="(coffee)" options={{ headerShown: false }} /> */}
-        <Stack.Screen
-          name="index"
-          options={{ title: "Home", headerShown: false }}
-        />
-        <Stack.Screen
-          name="menu"
-          options={{ title: "Coffee Shop Menu", headerShown: false }}
-        />
-        <Stack.Screen name="contact" options={{ title: "Contact Us" }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <Stack>
+          {/* <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> */}
+          {/* <Stack.Screen name="(coffee)" options={{ headerShown: false }} /> */}
+          <Stack.Screen
+            name="index"
+            options={{ title: "Home", headerShown: false }}
+          />
+          <Stack.Screen
+            name="menu"
+            options={{ title: "Coffee Shop Menu", headerShown: false }}
+          />
+          <Stack.Screen name="contact" options={{ title: "Contact Us" }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+        <StatusBar style="auto" />
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
